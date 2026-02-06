@@ -1,0 +1,34 @@
+terraform-platform/
+├── README.md
+├── versions.tf
+├── providers.tf
+├── locals.tf
+├── outputs.tf
+│
+├── modules/                      # Thin composition modules
+│   ├── site/
+│   │   ├── main.tf               # Wires everything together
+│   │   ├── alb.tf
+│   │   ├── nlb.tf
+│   │   ├── ec2.tf
+│   │   ├── ga.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── networking/
+│   ├── ec2/
+│   ├── alb/
+│   ├── global-accelerator/
+│   └── rds/
+│
+├── regions/
+│   └── ca-central-1/
+│       ├── networking/
+│       │   └── main.tf
+│       │
+│       └── sites/
+│           └── sites.tf          # for_each lives here
+│
+└── sites/
+    ├── sites.yaml                # START WITH ONE
+    └── defaults.yaml
